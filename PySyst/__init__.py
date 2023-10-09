@@ -30,8 +30,8 @@ from colorama import Fore, Style
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.1.0"
-__description__ = "This Python package manages your computer's settings and files."
+__version__ = "1.1.1"
+__description__ = "This Python package alters your computer's settings and files and includes various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
 __author_email__ = "anikethchavare@outlook.com"

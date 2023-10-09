@@ -28,8 +28,8 @@ with open("README.md") as readme_file:
 # Setup Arguments
 setup_args = dict (
     name = "PySyst",
-    version = "1.1.0",
-    description = "This Python package manages your computer's settings and files.",
+    version = "1.1.1",
+    description = "This Python package alters your computer's settings and files and includes various system-related functions.",
     long_description = README,
     long_description_content_type = "text/markdown",
     license = "Apache License 2.0",
@@ -51,7 +51,9 @@ setup_args = dict (
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: Apache Software License",
         "Natural Language :: English",
-        "Operating System :: OS Independent",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX :: Linux",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
