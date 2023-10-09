@@ -20,7 +20,9 @@ limitations under the License.
 
 # Imports
 import sys
+import wmi
 import requests
+import platform
 import webbrowser
 import importlib_metadata
 from bs4 import BeautifulSoup
@@ -28,7 +30,7 @@ from colorama import Fore, Style
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __description__ = "This Python package manages your computer's settings and files."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
@@ -36,6 +38,17 @@ __author_email__ = "anikethchavare@outlook.com"
 __github_url__ = "https://github.com/anikethchavare/PySyst"
 __pypi_url__ = "https://pypi.org/project/PySyst"
 __docs_url__ = "https://anikethchavare.gitbook.io/pysyst"
+
+# Variables
+os = platform.system()
+os_release = platform.release()
+os_version = platform.version()
+pc_name = platform.node()
+machine = platform.machine()
+processor = platform.processor()
+
+manufacturer = wmi.WMI().Win32_ComputerSystem()[0].Manufacturer
+model = wmi.WMI().Win32_ComputerSystem()[0].Model
 
 # Function 1 - Version Check
 def version_check():

@@ -9,7 +9,7 @@
 ## Package Information
 
 1. **Name**: PySyst</br>
-2. **Version**: 1.0.0</br>
+2. **Version**: 1.1.0</br>
 3. **Description**: This Python package manages your computer's settings and files.</br>
 4. **License**: Apache License 2.0</br>
 5. **Author**: Aniketh Chavare ([GitHub Profile](https://github.com/anikethchavare))</br>

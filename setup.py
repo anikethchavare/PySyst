@@ -28,7 +28,7 @@ with open("README.md") as readme_file:
 # Setup Arguments
 setup_args = dict (
     name = "PySyst",
-    version = "1.0.0",
+    version = "1.1.0",
     description = "This Python package manages your computer's settings and files.",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -43,7 +43,9 @@ setup_args = dict (
         "beautifulsoup4",
         "colorama",
         "requests",
-        "importlib-metadata"
+        "importlib-metadata",
+        "pyperclip",
+        "PyAutoGUI"
     ],
     classifiers = [
         "Development Status :: 5 - Production/Stable",

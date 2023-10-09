@@ -10,3 +10,6 @@ The source code, license, and other information about their open-source projects
 2. colorama (Jonathan Hartley) - Visit [here](https://github.com/tartley/colorama).
 3. requests (Python Software Foundation) - Visit [here](https://github.com/psf/requests).
 4. importlib-metadata (Python) - Visit [here](https://github.com/python/importlib_metadata).
+5. pyperclip (Al Sweigart) - Visit [here](https://github.com/asweigart/pyperclip).
+6. screen-brightness-control (Crozzers) - Visit [here](https://github.com/Crozzers/screen_brightness_control).
+7. PyAutoGUI (Al Sweigart) - Visit [here](https://github.com/asweigart/pyautogui).
