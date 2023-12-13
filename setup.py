@@ -28,7 +28,7 @@ with open("README.md") as readme_file:
 # Setup Arguments
 setup_args = dict (
     name = "PySyst",
-    version = "1.1.1",
+    version = "1.1.2",
     description = "This Python package alters your computer's settings and files and includes various system-related functions.",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -40,10 +40,11 @@ setup_args = dict (
     url = "https://github.com/anikethchavare/PySyst",
     download_url = "https://pypi.org/project/PySyst",
     install_requires = [
-        "beautifulsoup4",
-        "colorama",
         "requests",
         "importlib-metadata",
+        "beautifulsoup4",
+        "colorama",
+        "screen-brightness-control",
         "pyperclip",
         "PyAutoGUI"
     ],

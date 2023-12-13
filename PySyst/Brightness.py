@@ -22,29 +22,22 @@ limitations under the License.
 import platform
 from types import NoneType
 
-if (platform.system() in ["Windows", "Linux"]):
-    try:
-        import screen_brightness_control as sbc
-    except:
-        raise Exception("The 'screen-brightness-control' package must be installed for this module to work.")
+# Checking the OS
+if (platform.system() not in ["Windows", "Linux"]):
+    raise Exception("This module only works on Windows and Linux.")
+else:
+    # Importing "screen-brightness-control"
+    import screen_brightness_control as sbc
 
 # Function 1 - Max
 def max():
-    # Checking the OS
-    if (platform.system() in ["Windows", "Linux"]):
-        # Setting the Brightness
-        sbc.set_brightness(100)
-    else:
-        raise Exception("This function only works on Windows and Linux.")
+    # Setting the Brightness
+    sbc.set_brightness(100)
 
 # Function 2 - Min
 def min():
-    # Checking the OS
-    if (platform.system() in ["Windows", "Linux"]):
-        # Setting the Brightness
-        sbc.set_brightness(0)
-    else:
-        raise Exception("This function only works on Windows and Linux.")
+    # Setting the Brightness
+    sbc.set_brightness(0)
 
 # Function 3 - Set
 def set(value, display=0):
@@ -56,12 +49,6 @@ def set(value, display=0):
         "value": [(int, float), "an integer or a float"],
         "display": [(int, str), "an integer or a string"]
     }
-
-    # Checking the OS
-    if (platform.system() in ["Windows", "Linux"]):
-        pass
-    else:
-        raise Exception("This function only works on Windows and Linux.")
 
     # Checking the Data Types
     for parameter in parameters:
@@ -87,12 +74,6 @@ def fade(final, start=None, interval=0.01, increment=1, blocking=True):
         "blocking": [bool, "a boolean"]
     }
 
-    # Checking the OS
-    if (platform.system() in ["Windows", "Linux"]):
-        pass
-    else:
-        raise Exception("This function only works on Windows and Linux.")
-
     # Checking the Data Types
     for parameter in parameters:
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
@@ -105,9 +86,5 @@ def fade(final, start=None, interval=0.01, increment=1, blocking=True):
 
 # Function 5 - Get
 def get():
-    # Checking the OS
-    if (platform.system() in ["Windows", "Linux"]):
-        # Returning the Data
-        return {"Brightness": sbc.get_brightness(), "Monitors": sbc.list_monitors_info()}
-    else:
-        raise Exception("This function only works on Windows and Linux.")
+    # Returning the Data
+    return {"Brightness": sbc.get_brightness(), "Monitors": sbc.list_monitors_info()}

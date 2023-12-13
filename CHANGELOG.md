@@ -4,6 +4,10 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.1.2 (13/12/2023)</i>
+
+1. Fixed some bugs in the following modules: Brightness and Volume.
+
 ## <i>Version - 1.1.1 (9/10/2023)</i>
 
 1. Edited the package's social preview, description, and classifiers.
