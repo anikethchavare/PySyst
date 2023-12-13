@@ -21,23 +21,22 @@ limitations under the License.
 # Imports
 import sys
 import wmi
-import requests
 import platform
 import webbrowser
-import importlib_metadata
-from bs4 import BeautifulSoup
 from colorama import Fore, Style
+from .Packages import Python
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.1.2"
+__version__ = "1.2.0"
+__versions__ = Python("PySyst").get_versions()
 __description__ = "This Python package alters your computer's settings and files and includes various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
 __author_email__ = "anikethchavare@outlook.com"
 __github_url__ = "https://github.com/anikethchavare/PySyst"
 __pypi_url__ = "https://pypi.org/project/PySyst"
-__docs_url__ = "https://anikethchavare.gitbook.io/pysyst"
+__docs_url__ = "https://github.com/anikethchavare/PySyst/wiki"
 
 # Variables
 os = platform.system()
@@ -50,26 +49,15 @@ processor = platform.processor()
 manufacturer = wmi.WMI().Win32_ComputerSystem()[0].Manufacturer
 model = wmi.WMI().Win32_ComputerSystem()[0].Model
 
-# Function 1 - Version Check
-def version_check():
-    # Variables
-    system_version = importlib_metadata.version("PySyst")
-
-    # Try/Except - Package Version
-    try:
-        package_version = BeautifulSoup(requests.get(__pypi_url__).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
-    except:
-        package_version = system_version
-
-    # Checking the Version
-    if (system_version < package_version):
-        # Checking the Environment
-        if ("idlelib.run" in sys.modules):
-            print("You are using PySyst version " + system_version + ", however version " + package_version + " is available.")
-            print("Upgrade to the latest version for new features and improvements using this command: pip install --upgrade PySyst" + "\n")
-        else:
-            print(Fore.YELLOW + "You are using PySyst version " + system_version + ", however version " + package_version + " is available.")
-            print(Fore.YELLOW + "Upgrade to the latest version for new features and improvements using this command: " + Fore.CYAN + "pip install --upgrade PySyst" + Style.RESET_ALL + "\n")
+# Checking the Version
+if (__versions__["Upgrade Needed"]):
+    # Checking the Environment
+    if ("idlelib.run" in sys.modules):
+        print("You are using PySyst version " + __versions__["Installed Version"] + ", however version " + __versions__["Current Version"] + " is available.")
+        print("Upgrade to the latest version for new features and improvements using this command: pip install --upgrade PySyst" + "\n")
+    else:
+        print(Fore.YELLOW + "You are using PySyst version " + __versions__["Installed Version"] + ", however version " + __versions__["Current Version"] + " is available.")
+        print(Fore.YELLOW + "Upgrade to the latest version for new features and improvements using this command: " + Fore.CYAN + "pip install --upgrade PySyst" + Style.RESET_ALL + "\n")
 
 # Function 2 - GitHub
 def github():
@@ -94,6 +82,3 @@ def docs():
         webbrowser.open(__docs_url__)
     except:
         raise Exception("An error occurred while opening the docs. Please try again.")
-
-# Running the "version_check()" Function
-version_check()
