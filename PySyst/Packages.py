@@ -55,7 +55,7 @@ class Python:
 
         # Returning the Dictionary
         return {
-            "Current Version": package_version,
-            "Installed Version": self.version,
+            "Latest": package_version,
+            "Installed": self.version,
             "Upgrade Needed": self.version < package_version
         }

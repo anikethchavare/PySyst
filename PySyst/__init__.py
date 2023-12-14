@@ -28,9 +28,9 @@ from .Packages import Python
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 __versions__ = Python("PySyst").get_versions()
-__description__ = "This Python package alters your computer's settings and files and includes various system-related functions."
+__description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
 __author_email__ = "anikethchavare@outlook.com"
@@ -53,13 +53,13 @@ model = wmi.WMI().Win32_ComputerSystem()[0].Model
 if (__versions__["Upgrade Needed"]):
     # Checking the Environment
     if ("idlelib.run" in sys.modules):
-        print("You are using PySyst version " + __versions__["Installed Version"] + ", however version " + __versions__["Current Version"] + " is available.")
+        print("You are using PySyst version " + __versions__["Installed"] + ", however version " + __versions__["Latest"] + " is available.")
         print("Upgrade to the latest version for new features and improvements using this command: pip install --upgrade PySyst" + "\n")
     else:
-        print(Fore.YELLOW + "You are using PySyst version " + __versions__["Installed Version"] + ", however version " + __versions__["Current Version"] + " is available.")
+        print(Fore.YELLOW + "You are using PySyst version " + __versions__["Installed"] + ", however version " + __versions__["Latest"] + " is available.")
         print(Fore.YELLOW + "Upgrade to the latest version for new features and improvements using this command: " + Fore.CYAN + "pip install --upgrade PySyst" + Style.RESET_ALL + "\n")
 
-# Function 2 - GitHub
+# Function 1 - GitHub
 def github():
     # Opening PySyst's GitHub Repository
     try:
@@ -67,7 +67,7 @@ def github():
     except:
         raise Exception("An error occurred while opening the GitHub repository. Please try again.")
 
-# Function 3 - PyPI
+# Function 2 - PyPI
 def pypi():
     # Opening PySyst's PyPI Page
     try:
@@ -75,7 +75,7 @@ def pypi():
     except:
         raise Exception("An error occurred while opening the PyPI page. Please try again.")
 
-# Function 4 - Docs
+# Function 3 - Docs
 def docs():
     # Opening PySyst's Docs
     try:
