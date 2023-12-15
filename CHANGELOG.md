@@ -4,6 +4,13 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.2.2 (15/12/2023)</i>
+
+1. Updated the following modules: Packages
+2. Added the following dependencies to "setup.py": setuptools
+3. Edited the following files: "CREDITS.md", "LICENSE.txt", and "README.md"
+4. Edited the package's social preview.
+
 ## <i>Version - 1.2.1 (14/12/2023)</i>
 
 1. Fixed some bugs in the following modules: Packages

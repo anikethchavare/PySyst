@@ -1,6 +1,6 @@
 <h1 align="center">This is PySyst.</h1>
 
-<p align="center"><img src="https://github.com/anikethchavare/PySyst/assets/50455489/30d9428d-0805-481c-9fcd-98cadaa9d9bd" width="600" height="300"></p>
+<p align="center"><img src="https://github.com/anikethchavare/PySyst/assets/50455489/a53cfb7f-8364-4d6b-a967-8037ad05bf1d" width="600" height="300"></p>
 
 <p align="center">This Python package alters your computer's settings and files and comes with various system-related functions. Scroll down to learn more.</p>
 
@@ -9,7 +9,7 @@
 ## Package Information
 
 1. **Name**: PySyst</br>
-2. **Version**: 1.2.1</br>
+2. **Version**: 1.2.2</br>
 3. **Description**: This Python package alters your computer's settings and files and comes with various system-related functions.</br>
 4. **License**: Apache License 2.0</br>
 5. **Author**: Aniketh Chavare ([GitHub Profile](https://github.com/anikethchavare))</br>

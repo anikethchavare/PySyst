@@ -28,7 +28,7 @@ from .Packages import Python
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.1"
+__version__ = "1.2.2"
 __versions__ = Python("PySyst").get_versions()
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"

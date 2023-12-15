@@ -20,8 +20,25 @@ limitations under the License.
 
 # Imports
 import requests
+import pkg_resources
 import importlib_metadata
 from bs4 import BeautifulSoup
+
+# Function 1 - List Packages
+def list_packages(language):
+    # Variables
+    languages = ["python"]
+
+    # Checking the Data Type of "language"
+    if (isinstance(language, str)):
+        # Checking the Value of "language"
+        if (language in languages):
+            # Returning the List of Packages Installed
+            return sorted(["%s==%s" % (package.key, package.version) for package in pkg_resources.working_set])
+        else:
+            raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))
+    else:
+        raise TypeError("The 'language' argument must be a string.")
 
 # Class 1 - Python
 class Python:
