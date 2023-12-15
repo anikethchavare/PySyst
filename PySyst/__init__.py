@@ -28,7 +28,7 @@ from .Packages import Python
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.2"
+__version__ = "1.2.3"
 __versions__ = Python("PySyst").get_versions()
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
@@ -36,7 +36,7 @@ __author__ = "Aniketh Chavare"
 __author_email__ = "anikethchavare@outlook.com"
 __github_url__ = "https://github.com/anikethchavare/PySyst"
 __pypi_url__ = "https://pypi.org/project/PySyst"
-__docs_url__ = "https://github.com/anikethchavare/PySyst/wiki"
+__docs_url__ = "https://anikethchavare.gitbook.io/pysyst"
 
 # Variables
 os = platform.system()

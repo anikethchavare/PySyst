@@ -4,6 +4,10 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.2.3 (15/12/2023)</i>
+
+1. Edited the following files: "setup.py" and "README.md"
+
 ## <i>Version - 1.2.2 (15/12/2023)</i>
 
 1. Updated the following modules: Packages

@@ -28,7 +28,7 @@ with open("README.md") as readme_file:
 # Setup Arguments
 setup_args = dict (
     name = "PySyst",
-    version = "1.2.2",
+    version = "1.2.3",
     description = "This Python package alters your computer's settings and files and comes with various system-related functions.",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -40,7 +40,7 @@ setup_args = dict (
     project_urls = {
         "Homepage": "https://pypi.org/project/PySyst",
         "Repository": "https://github.com/anikethchavare/PySyst",
-        "Documentation": "https://github.com/anikethchavare/PySyst/wiki",
+        "Documentation": "https://anikethchavare.gitbook.io/pysyst",
         "Download": "https://github.com/anikethchavare/PySyst/releases",
         "Changelog": "https://github.com/anikethchavare/PySyst/blob/main/CHANGELOG.md",
         "Issues": "https://github.com/anikethchavare/PySyst/issues"
