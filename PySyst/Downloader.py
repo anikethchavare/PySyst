@@ -41,11 +41,12 @@ def download(url, path):
 
     # Try/Except - Fetching the File's Data
     try:
+        # Variables
         data = requests.get(url).content
     except requests.ConnectionError:
         raise ConnectionError("A connection error occurred. Please try again.")
     except:
-        raise Exception("An error occurred while fetching the image. Please try again.")
+        raise Exception("An error occurred while fetching the file. Please try again.")
 
     # Writing to the File
     with open(path, "wb") as file:

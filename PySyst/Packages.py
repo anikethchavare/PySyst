@@ -31,10 +31,12 @@ def list_packages(language):
 
     # Checking the Data Type of "language"
     if (isinstance(language, str)):
-        # Checking the Value of "language"
+        # Checking if "language" is Valid
         if (language in languages):
-            # Returning the List of Packages Installed
-            return sorted(["%s==%s" % (package.key, package.version) for package in pkg_resources.working_set])
+            # Checking the Value of "language"
+            if (language == "python"):
+                # Returning the List of Python Packages Installed
+                return sorted(["%s==%s" % (package.key, package.version) for package in pkg_resources.working_set])
         else:
             raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))
     else:
@@ -48,7 +50,7 @@ class Python:
         if (isinstance(name, str)):
             # Try/Except - Checking if Package Exists
             try:
-                # Assigning the Variable
+                # Variables
                 package_metadata = importlib_metadata.metadata(name)
             except importlib_metadata.PackageNotFoundError:
                 # Raising an Error
@@ -67,8 +69,14 @@ class Python:
 
     # Function 3 - Get Versions
     def get_versions(self):
-        # Variables
-        package_version = BeautifulSoup(requests.get("https://pypi.org/project/{0}".format(self.name)).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
+        # Try/Except - Fetching the Package Version
+        try:
+            # Variables
+            package_version = BeautifulSoup(requests.get("https://pypi.org/project/{0}".format(self.name)).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
+        except requests.ConnectionError:
+            raise ConnectionError("A connection error occurred. Please try again.")
+        except:
+            raise Exception("An error occurred while fetching the package's versions. Please try again.")
 
         # Returning the Dictionary
         return {

@@ -28,8 +28,7 @@ from .Packages import Python
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.3"
-__versions__ = Python("PySyst").get_versions()
+__version__ = "1.2.4"
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
@@ -49,15 +48,22 @@ processor = platform.processor()
 manufacturer = wmi.WMI().Win32_ComputerSystem()[0].Manufacturer
 model = wmi.WMI().Win32_ComputerSystem()[0].Model
 
-# Checking the Version
-if (__versions__["Upgrade Needed"]):
-    # Checking the Environment
-    if ("idlelib.run" in sys.modules):
-        print("You are using PySyst version " + __versions__["Installed"] + ", however version " + __versions__["Latest"] + " is available.")
-        print("Upgrade to the latest version for new features and improvements using this command: pip install --upgrade PySyst" + "\n")
-    else:
-        print(Fore.YELLOW + "You are using PySyst version " + __versions__["Installed"] + ", however version " + __versions__["Latest"] + " is available.")
-        print(Fore.YELLOW + "Upgrade to the latest version for new features and improvements using this command: " + Fore.CYAN + "pip install --upgrade PySyst" + Style.RESET_ALL + "\n")
+# Try/Except - Checking the Version
+try:
+    # Variables
+    versions = Python("PySyst").get_versions()
+
+    # Checking the Version
+    if (versions["Upgrade Needed"]):
+        # Checking the Environment
+        if ("idlelib.run" in sys.modules):
+            print("You are using PySyst version " + versions["Installed"] + ", however version " + versions["Latest"] + " is available.")
+            print("Upgrade to the latest version for new features and improvements using this command: pip install --upgrade PySyst" + "\n")
+        else:
+            print(Fore.YELLOW + "You are using PySyst version " + versions["Installed"] + ", however version " + versions["Latest"] + " is available.")
+            print(Fore.YELLOW + "Upgrade to the latest version for new features and improvements using this command: " + Fore.CYAN + "pip install --upgrade PySyst" + Style.RESET_ALL + "\n")
+except:
+    pass
 
 # Function 1 - GitHub
 def github():
