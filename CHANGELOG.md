@@ -4,6 +4,11 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.2.5 (19/12/2023)</i>
+
+1. Updated the following modules: Packages
+2. Removed the following dependencies from "setup.py": setuptools and importlib-metadata
+
 ## <i>Version - 1.2.4 (16/12/2023)</i>
 
 1. Fixed some bugs in the following modules: Packages and Downloader

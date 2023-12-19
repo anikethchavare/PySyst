@@ -20,8 +20,7 @@ limitations under the License.
 
 # Imports
 import requests
-import pkg_resources
-import importlib_metadata
+import subprocess
 from bs4 import BeautifulSoup
 
 # Function 1 - List Packages
@@ -32,55 +31,81 @@ def list_packages(language):
     # Checking the Data Type of "language"
     if (isinstance(language, str)):
         # Checking if "language" is Valid
-        if (language in languages):
+        if (language.lower() in languages):
             # Checking the Value of "language"
-            if (language == "python"):
-                # Returning the List of Python Packages Installed
-                return sorted(["%s==%s" % (package.key, package.version) for package in pkg_resources.working_set])
+            if (language.lower() == "python"):
+                # Try/Except - Fetching and Returning the Packages
+                try:
+                    # Variables
+                    packages_list = subprocess.check_output(["pip", "list"], stderr=subprocess.DEVNULL).decode().split("\n")[2:-1]
+                    packages_list = [package.split() for package in packages_list]
+
+                    # Returning the List of Packages
+                    return [f"{package[0]}=={package[1]}" for package in packages_list]
+                except:
+                    raise Exception("An occurred while retrieving the list of packages. Please try again.")
         else:
             raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))
     else:
         raise TypeError("The 'language' argument must be a string.")
 
-# Class 1 - Python
-class Python:
-    # Function 1 - Init
-    def __init__(self, name):
-        # Checking the Data Type of "name"
-        if (isinstance(name, str)):
-            # Try/Except - Checking if Package Exists
-            try:
-                # Variables
-                package_metadata = importlib_metadata.metadata(name)
-            except importlib_metadata.PackageNotFoundError:
-                # Raising an Error
-                raise Exception("No package metadata was found for {0}.".format(name))
+# Function 2 - Package Versions
+def package_versions(language, name):
+    # Variables
+    flag = False
+    languages = ["python"]
+    parameters = ["language", "name"]
 
-            # Specifying and Declaring the Attributes
-            for i in package_metadata:
-                exec("self.{0} = package_metadata.get('{1}')".format(i.replace("-", "_").lower(), i))
+    # Variables - Package Version
+    package_version_latest = None
+    package_version_installed = None
+
+    # Parameters & Data Types
+    paramaters_data = {
+        "language": [str, "a string"],
+        "name": [str, "a string"]
+    }
+
+    # Checking the Data Types
+    for parameter in parameters:
+        if (isinstance(eval(parameter), paramaters_data[parameter][0])):
+            pass
         else:
-            raise TypeError("The 'name' argument must be a string.")
+            raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
-    # Function 2 - Get Attributes
-    def get_attributes(self):
-        # Returning the List of Attributes' Keys
-        return list(vars(self).keys())
+    # Checking if "language" is Valid
+    if (language.lower() in languages):
+        # Checking the Value of "language"
+        if (language.lower() == "python"):
+            # Looping through "list_packages()" Function
+            for package in list_packages("python"):
+                # Checking if "name" in "package"
+                if (name in package):
+                    # Changing "flag" to True
+                    flag = True
 
-    # Function 3 - Get Versions
-    def get_versions(self):
-        # Try/Except - Fetching the Package Version
-        try:
-            # Variables
-            package_version = BeautifulSoup(requests.get("https://pypi.org/project/{0}".format(self.name)).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
-        except requests.ConnectionError:
-            raise ConnectionError("A connection error occurred. Please try again.")
-        except:
-            raise Exception("An error occurred while fetching the package's versions. Please try again.")
+                    # Assigning the Variable "package_version_installed"
+                    package_version_installed = package.split("==")[1]
 
-        # Returning the Dictionary
-        return {
-            "Latest": package_version,
-            "Installed": self.version,
-            "Upgrade Needed": self.version < package_version
-        }
+            # Checking the "flag"
+            if (not flag):
+                # Raising an Exception
+                raise Exception("No package data was found for {0}.".format(name))
+
+            # Try/Except - Fetching the Package's Latest Version
+            try:
+                # Assigning the Variable "package_version_latest"
+                package_version_latest = BeautifulSoup(requests.get("https://pypi.org/project/{0}".format(name)).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
+            except requests.ConnectionError:
+                raise ConnectionError("A connection error occurred. Please try again.")
+            except:
+                raise Exception("An error occurred while fetching the package's latest versions. Please try again.")
+
+            # Returning the Dictionary
+            return {
+                "Latest": package_version_latest,
+                "Installed": package_version_installed,
+                "Upgrade Needed": package_version_installed < package_version_latest
+            }
+    else:
+        raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))

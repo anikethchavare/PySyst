@@ -24,11 +24,11 @@ import wmi
 import platform
 import webbrowser
 from colorama import Fore, Style
-from .Packages import Python
+from .Packages import package_versions
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.4"
+__version__ = "1.2.5"
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
@@ -51,7 +51,7 @@ model = wmi.WMI().Win32_ComputerSystem()[0].Model
 # Try/Except - Checking the Version
 try:
     # Variables
-    versions = Python("PySyst").get_versions()
+    versions = package_versions("python", "PySyst")
 
     # Checking the Version
     if (versions["Upgrade Needed"]):
