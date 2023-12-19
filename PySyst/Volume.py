@@ -24,6 +24,7 @@ import platform
 
 # Checking the OS
 if (platform.system() not in ["Windows"]):
+    # Raising an Exception
     raise Exception("This module only works on Windows.")
 
 # Function 1 - Max

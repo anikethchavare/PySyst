@@ -43,6 +43,7 @@ def copy_file(path):
                     # Copying the File
                     copy(file.read())
             except:
+                # Raising an Exception
                 raise Exception("An error occurred while copying the contents of the file. Please try again.")
         else:
             raise FileNotFoundError("The file path doesn't exist.")
@@ -64,6 +65,7 @@ def paste_file(path):
                 # Pasting the Data to the File
                 file.write(paste())
         except:
+            # Raising an Exception
             raise Exception("An error occurred while pasting the data to the file. Please try again.")
     else:
         raise TypeError("The 'path' argument must be a string.")

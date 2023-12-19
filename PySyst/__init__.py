@@ -71,6 +71,7 @@ def github():
     try:
         webbrowser.open(__github_url__)
     except:
+        # Raising an Exception
         raise Exception("An error occurred while opening the GitHub repository. Please try again.")
 
 # Function 2 - PyPI
@@ -79,6 +80,7 @@ def pypi():
     try:
         webbrowser.open(__pypi_url__)
     except:
+        # Raising an Exception
         raise Exception("An error occurred while opening the PyPI page. Please try again.")
 
 # Function 3 - Docs
@@ -87,4 +89,5 @@ def docs():
     try:
         webbrowser.open(__docs_url__)
     except:
+        # Raising an Exception
         raise Exception("An error occurred while opening the docs. Please try again.")

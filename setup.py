@@ -49,7 +49,6 @@ setup_args = dict (
         "requests",
         "beautifulsoup4",
         "colorama",
-        "screen-brightness-control",
         "pyperclip",
         "PyAutoGUI"
     ],

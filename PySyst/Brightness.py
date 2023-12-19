@@ -24,10 +24,16 @@ from types import NoneType
 
 # Checking the OS
 if (platform.system() not in ["Windows", "Linux"]):
+    # Raising an Exception
     raise Exception("This module only works on Windows and Linux.")
 else:
-    # Importing "screen-brightness-control"
-    import screen_brightness_control as sbc
+    # Try/Except - Importing "screen-brightness-control"
+    try:
+        # Importing
+        import screen_brightness_control as sbc
+    except:
+        # Raising an Exception
+        raise Exception("The 'screen-brightness-control' package must be installed for this module to work. Install it from https://pypi.org/project/screen-brightness-control.")
 
 # Function 1 - Max
 def max():

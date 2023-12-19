@@ -43,8 +43,10 @@ def list_packages(language):
                     # Returning the List of Packages
                     return [f"{package[0]}=={package[1]}" for package in packages_list]
                 except:
+                    # Raising an Exception
                     raise Exception("An occurred while retrieving the list of packages. Please try again.")
         else:
+            # Raising an Exception
             raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))
     else:
         raise TypeError("The 'language' argument must be a string.")
@@ -99,6 +101,7 @@ def package_versions(language, name):
             except requests.ConnectionError:
                 raise ConnectionError("A connection error occurred. Please try again.")
             except:
+                # Raising an Exception
                 raise Exception("An error occurred while fetching the package's latest versions. Please try again.")
 
             # Returning the Dictionary
@@ -108,4 +111,5 @@ def package_versions(language, name):
                 "Upgrade Needed": package_version_installed < package_version_latest
             }
     else:
+        # Raising an Exception
         raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))

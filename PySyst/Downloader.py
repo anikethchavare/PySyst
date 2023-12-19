@@ -46,6 +46,7 @@ def download(url, path):
     except requests.ConnectionError:
         raise ConnectionError("A connection error occurred. Please try again.")
     except:
+        # Raising an Exception
         raise Exception("An error occurred while fetching the file. Please try again.")
 
     # Writing to the File
