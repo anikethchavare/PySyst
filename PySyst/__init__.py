@@ -20,7 +20,6 @@ limitations under the License.
 
 # Imports
 import sys
-import wmi
 import pickle
 import platform
 import webbrowser
@@ -31,7 +30,7 @@ from datetime import datetime, timedelta
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.7"
+__version__ = "1.2.8"
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
@@ -48,8 +47,16 @@ pc_name = platform.node()
 machine = platform.machine()
 processor = platform.processor()
 
-manufacturer = wmi.WMI().Win32_ComputerSystem()[0].Manufacturer
-model = wmi.WMI().Win32_ComputerSystem()[0].Model
+# Try/Except - Importing "wmi" and Assigning Variables
+try:
+    # Imports
+    import wmi
+
+    # Variables
+    manufacturer = wmi.WMI().Win32_ComputerSystem()[0].Manufacturer
+    model = wmi.WMI().Win32_ComputerSystem()[0].Model
+except:
+    pass
 
 # Function 1 - Version Check
 def version_check():
