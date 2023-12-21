@@ -4,6 +4,10 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.2.7 (21/12/2023)</i>
+
+1. Edited the package's "init.py" file.
+
 ## <i>Version - 1.2.6 (19/12/2023)</i>
 
 1. Removed the following dependencies from "setup.py": screen-brightness-control
