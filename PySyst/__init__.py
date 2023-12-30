@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 
 # Variables - Package Information
 __name__ = "PySyst"
-__version__ = "1.2.8"
+__version__ = "1.2.9"
 __description__ = "This Python package alters your computer's settings and files and comes with various system-related functions."
 __license__ = "Apache License 2.0"
 __author__ = "Aniketh Chavare"
@@ -106,7 +106,7 @@ def version_check():
         # Running the "version_check_2()" Function
         version_check_2(True)
 
-# Function 1 - GitHub
+# Function 2 - GitHub
 def github():
     # Opening PySyst's GitHub Repository
     try:
@@ -115,7 +115,7 @@ def github():
         # Raising an Exception
         raise Exception("An error occurred while opening the GitHub repository. Please try again.")
 
-# Function 2 - PyPI
+# Function 3 - PyPI
 def pypi():
     # Opening PySyst's PyPI Page
     try:
@@ -124,7 +124,7 @@ def pypi():
         # Raising an Exception
         raise Exception("An error occurred while opening the PyPI page. Please try again.")
 
-# Function 3 - Docs
+# Function 4 - Docs
 def docs():
     # Opening PySyst's Docs
     try:

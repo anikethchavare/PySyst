@@ -61,6 +61,7 @@ def set(value, display=0):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Setting the Brightness
@@ -85,6 +86,7 @@ def fade(final, start=None, interval=0.01, increment=1, blocking=True):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Setting the Brightness

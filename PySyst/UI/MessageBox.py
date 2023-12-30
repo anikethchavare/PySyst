@@ -19,11 +19,7 @@ limitations under the License.
 '''
 
 # Imports
-import os
-#import platform
 import pyautogui
-from types import NoneType
-#from win10toast import ToastNotifier
 
 # Function 1 - Alert
 def alert(title="", text="", button=""):
@@ -42,6 +38,7 @@ def alert(title="", text="", button=""):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Displaying the Message Box
@@ -64,6 +61,7 @@ def confirm(title="", text="", buttons=[]):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Displaying the Message Box
@@ -86,6 +84,7 @@ def prompt(title="", text="", default=""):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Displaying the Message Box
@@ -109,42 +108,8 @@ def password(title="", text="", default="", mask="*"):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Displaying the Message Box
     return pyautogui.password(title=title, text=text, default=default, mask=mask)
-
-# Function 5 - Toast
-'''def toast(title, message, icon=None, duration=5, threaded=False):
-    # Variables
-    parameters = ["title", "message", "icon", "duration", "threaded"]
-
-    # Parameters & Data Types
-    paramaters_data = {
-        "title": [str, "a string"],
-        "message": [str, "a string"],
-        "icon": [(str, NoneType), "a string"],
-        "duration": [(int, float), "an integer or a float"],
-        "threaded": [bool, "a boolean"]
-    }
-
-    # Checking the OS
-    if (platform.uname().system == "Windows"):
-        pass
-    else:
-        raise Exception("This function only works on Windows.")
-
-    # Checking the Data Types
-    for parameter in parameters:
-        if (isinstance(eval(parameter), paramaters_data[parameter][0])):
-            pass
-        else:
-            raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
-
-    # Checking if "icon" Path Exists
-    if (icon != None):
-        if (os.path.exists(icon)):
-            raise FileNotFoundError("The 'icon' file path doesn't exist.")
-
-    # Displaying the Toast
-    ToastNotifier().show_toast(title, message, icon_path=icon, duration=duration, threaded=threaded)'''

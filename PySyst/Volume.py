@@ -47,6 +47,7 @@ def increase(value):
         os.chdir(os.path.dirname(os.path.realpath(__file__)).replace(os.sep, "/") + "/assets")
         os.system("setvol +" + str(value))
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'value' argument must be an integer.")
 
 # Function 4 - Decrease
@@ -57,6 +58,7 @@ def decrease(value):
         os.chdir(os.path.dirname(os.path.realpath(__file__)).replace(os.sep, "/") + "/assets")
         os.system("setvol -" + str(value))
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'value' argument must be an integer.")
 
 # Function 5 - Mute
@@ -79,4 +81,5 @@ def set(value):
         os.chdir(os.path.dirname(os.path.realpath(__file__)).replace(os.sep, "/") + "/assets")
         os.system("setvol " + str(value))
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'value' argument must be an integer.")

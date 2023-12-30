@@ -4,6 +4,11 @@ This is the changelog file of PySyst.
 
 **Note:** All the dates below are in the IST time format.
 
+## <i>Version - 1.2.9 (30/12/2023)</i>
+
+1. Fixed some bugs in the following modules: Packages and MessageBox (UI)
+2. Created the following modules: Keyboard
+
 ## <i>Version - 1.2.8 (21/12/2023)</i>
 
 1. Edited the package's "init.py" file.

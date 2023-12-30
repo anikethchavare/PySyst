@@ -37,6 +37,7 @@ def download(url, path):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Try/Except - Fetching the File's Data
@@ -44,6 +45,7 @@ def download(url, path):
         # Variables
         data = requests.get(url).content
     except requests.ConnectionError:
+        # Raising a ConnectionError Exception
         raise ConnectionError("A connection error occurred. Please try again.")
     except:
         # Raising an Exception

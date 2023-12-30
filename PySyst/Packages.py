@@ -36,12 +36,8 @@ def list_packages(language):
             if (language.lower() == "python"):
                 # Try/Except - Fetching and Returning the Packages
                 try:
-                    # Variables
-                    packages_list = subprocess.check_output(["pip", "list"], stderr=subprocess.DEVNULL).decode().split("\n")[2:-1]
-                    packages_list = [package.split() for package in packages_list]
-
                     # Returning the List of Packages
-                    return [f"{package[0]}=={package[1]}" for package in packages_list]
+                    return [f"{package[0]}=={package[1]}" for package in [package.split() for package in subprocess.check_output(["pip", "list"], stderr=subprocess.DEVNULL).decode().split("\n")[2:-1]]]
                 except:
                     # Raising an Exception
                     raise Exception("An occurred while retrieving the list of packages. Please try again.")
@@ -49,6 +45,7 @@ def list_packages(language):
             # Raising an Exception
             raise Exception("The 'language' argument must be a valid programming language's name. The available languages are: " + str(languages))
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'language' argument must be a string.")
 
 # Function 2 - Package Versions
@@ -73,13 +70,14 @@ def package_versions(language, name):
         if (isinstance(eval(parameter), paramaters_data[parameter][0])):
             pass
         else:
+            # Raising a TypeError Exception
             raise TypeError("The '{0}' argument must be {1}.".format(parameter, paramaters_data[parameter][1]))
 
     # Checking if "language" is Valid
     if (language.lower() in languages):
         # Checking the Value of "language"
         if (language.lower() == "python"):
-            # Looping through "list_packages()" Function
+            # Looping through the "list_packages()" Function
             for package in list_packages("python"):
                 # Checking if "name" in "package"
                 if (name in package):
@@ -99,6 +97,7 @@ def package_versions(language, name):
                 # Assigning the Variable "package_version_latest"
                 package_version_latest = BeautifulSoup(requests.get("https://pypi.org/project/{0}".format(name)).text, "html.parser").body.main.find_all("div")[1].h1.text.strip().split()[1]
             except requests.ConnectionError:
+                # Raising a ConnectionError Exception
                 raise ConnectionError("A connection error occurred. Please try again.")
             except:
                 # Raising an Exception

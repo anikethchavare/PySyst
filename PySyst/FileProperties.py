@@ -52,6 +52,8 @@ class FileProperties:
                 self.absolute_path = os.path.abspath(path)
                 self.directory_path = os.path.dirname(path)
             else:
+                # Raising a FileNotFoundError Exception
                 raise FileNotFoundError("The file path doesn't exist.")
         else:
+            # Raising a TypeError Exception
             raise TypeError("The 'path' argument must be a string.")

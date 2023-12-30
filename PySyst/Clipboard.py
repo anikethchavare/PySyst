@@ -29,6 +29,7 @@ def copy(data):
         # Copying the Data
         pyperclip.copy(data)
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'data' argument must be a string, integer, float, or a boolean.")
 
 # Function 2 - Copy File
@@ -46,8 +47,10 @@ def copy_file(path):
                 # Raising an Exception
                 raise Exception("An error occurred while copying the contents of the file. Please try again.")
         else:
+            # Raising a FileNotFoundError Exception
             raise FileNotFoundError("The file path doesn't exist.")
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'path' argument must be a string.")
 
 # Function 3 - Paste
@@ -68,4 +71,5 @@ def paste_file(path):
             # Raising an Exception
             raise Exception("An error occurred while pasting the data to the file. Please try again.")
     else:
+        # Raising a TypeError Exception
         raise TypeError("The 'path' argument must be a string.")
